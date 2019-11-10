@@ -26,6 +26,7 @@ public class BaseClass
 	public void tearDown()
 	{
 		BrowserFactory.quitBrowser(driver);
+		System.out.println("I am in Teardown Method");
 	}
     @AfterMethod
     public void teardownMethod(ITestResult result){
