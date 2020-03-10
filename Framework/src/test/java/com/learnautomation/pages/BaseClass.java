@@ -5,6 +5,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import com.learnautomation.utility.BrowserFactory;
 import com.learnautomation.utility.ConfigDataProvider;
@@ -16,10 +17,12 @@ public class BaseClass
 	public WebDriver driver;
 	public ConfigDataProvider config= new ConfigDataProvider();
 	public ExcelDataProvider excelData= new ExcelDataProvider();
-    @BeforeClass
-	public void setUp()
+    @Parameters("browser")
+	@BeforeClass
+	public void setUp(String browser)
 	{
-		driver = BrowserFactory.startApplication(driver, config.getBrowserName(),config.getURL());
+//		driver = BrowserFactory.startApplication(driver, config.getBrowserName(),config.getURL());
+    	driver = BrowserFactory.startApplication(driver, browser,config.getURL());
 	}
     
     @AfterClass

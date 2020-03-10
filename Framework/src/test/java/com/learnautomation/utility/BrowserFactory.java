@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-
+//Hello
 public class BrowserFactory
 {
 	
@@ -15,7 +15,7 @@ public class BrowserFactory
 	{
 		if (browserName.equals("Chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", "C://Users//Naveen//workspace//Framework//Driver//chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/Driver/chromedriver.exe");
 			driver = new ChromeDriver();
 		} else if (browserName.equals("Firefox"))
 		{
