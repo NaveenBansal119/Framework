@@ -12,9 +12,11 @@ public class LoginTestCRM extends BaseClass
 {  
 	@Test
 	public void loginApp() throws Exception
-	{
+	{   logger = report.createTest("Login  Functionality");
+		logger.info("Starting the test Execution");
 		LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 		loginPage.loginToCRM(excelData.getStringData("Login", 0, 0),excelData.getStringData("Login", 0, 1));
 		//Assert.assertEquals(true, false);
+		logger.info("Ending the test Execution");
 	}
 }

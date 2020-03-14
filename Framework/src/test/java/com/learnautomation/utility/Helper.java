@@ -13,19 +13,23 @@ import org.openqa.selenium.io.FileHandler;
 
 public class Helper
 {
-	public static void captureScreeshot(WebDriver driver)
+	public static String captureScreeshot(WebDriver driver)
 	{
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String destPath = "./Screenshots/"+getCurrentDateTime()+"Login.png";
+		
 		try
 		{
-			FileHandler.copy(src, new File("./Screenshots/"+getCurrentDateTime()+"Login.png"));
+			FileHandler.copy(src, new File(destPath));
 			
 			System.out.println("Screenshot captured sucessfully");
+			return destPath;
 		} catch (Exception e)
 		{
 			// TODO Auto-generated catch block
 			System.out.println("Unable to capture screenhsot " + e.getMessage());
 		}
+		return destPath;
 	}
 
 	public static String getCurrentDateTime()
